@@ -1,0 +1,6 @@
+#logs
+node_modules/
+
+#Editor directories and files
+.envnode_modules/
+.env
