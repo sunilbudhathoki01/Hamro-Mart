@@ -14,7 +14,7 @@ const userSchema=mongoose.Schema({
     username:{
         type:String,
         unique:true,
-        required:[true,"username is already taken"]
+        required:[true,"username is required"]
     },
     password:{
         type:String,
@@ -32,8 +32,8 @@ const userSchema=mongoose.Schema({
         type:[String],
         enum:[USER_ROLE_ADMIN,USER_ROLE_MERCHANT,USER_ROLE_USER],
         default:USER_ROLE_USER
-    },
-    // timestamps:[true]
-})
+    }
+   
+},{timestamps:true});
 const userModel=mongoose.model("User",userSchema)
 export default userModel

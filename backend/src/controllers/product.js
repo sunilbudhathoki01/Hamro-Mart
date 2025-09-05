@@ -1,3 +1,5 @@
+import ApiResponse from "../../utils/APiResponse.js"
+import uploadFile from "../../utils/cloudinary.js"
 import productService from "../services/product.js"
 // getAllProducts
 const getAllProducts=async(requestAnimationFrame,res)=>{
@@ -22,16 +24,19 @@ const getProductsById=async(req,res)=>{
 // createProducts
 const createProducts=async(req,res)=>{
     try {
-        const products=await productService.createProducts(req.body)
-        res.json(products)
+        const file=req.files
+        const data=req.data
+        // const uploadFile=await uploadFile(file)
+        const products=await productService.createProducts(data,file)
+        return res.status(201).json(new ApiResponse(201,products,"Products added successfully"))
     } catch (error) {
-        console.log(error.message)
+        return res.status(500).json(new ApiResponse(500,{},"Something went wrong internally"))
     }
 }
 // deleteproducts
 const deleteproducts=async(req,res)=>{
 try {
-    const products=await productService.deleteproducts(req.params)
+    const products=await productService.deleteProductsById(req.params.id);
 } catch (error) {
     console.log(error.message)
 }

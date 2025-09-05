@@ -4,7 +4,6 @@ const getAllUsers=async(req,res)=>{
 try {
         const users=await userService.getAllUsers();
         res.json(users)
-        res.send("getting all users");
 } catch (error) {
     console.log(error.message)
 }    
@@ -13,9 +12,8 @@ try {
 // getUsersById
 const getUserById=async(req,res)=>{
     try {
-        const users=await userService.getUserById(req.params)
+        const users=await userService.getUserById(req.params.id)
         res.json(users)
-        res.send("getting users By Id")
     } catch (error) {
         console.log(error.message)
     }
@@ -26,7 +24,6 @@ const createUsers=async(req,res)=>{
     try {
         const users=await userService.createUsers(req.body)
         res.json(users)
-        res.send("users created successfully")
     } catch (error) {
         console.log(error.message)
     }

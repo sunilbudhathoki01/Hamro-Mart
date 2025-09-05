@@ -11,8 +11,8 @@ return products
 }
 
 // create products
-const createProducts=async(data)=>{
-    const products=await Product.create(data);
+const createProducts=async(data,file)=>{
+    const products=await Product.create(data,file);
 return products
 }
 // delete producst

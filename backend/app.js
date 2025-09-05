@@ -3,6 +3,8 @@ import connectdb from "./src/config/database.js";
 import config from "./src/config/config.js";
 import productRoute from "./src/routes/product.js";
 import userRoute from "./src/routes/user.js"
+import cartRoute from "./src/routes/cart.js"
+import categoryRoute from "./src/routes/category.js"
 
 connectdb()
 const app=express()
@@ -10,6 +12,9 @@ const app=express()
 app.use(express.json())
 app.use("/api/products",productRoute)
 app.use("/api/users",userRoute)
+app.use("/api/cart",cartRoute)
+app.use("/api/category",categoryRoute)
+
 
 // sample route
 app.get((req,res)=>{

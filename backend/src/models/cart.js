@@ -8,8 +8,7 @@ const cartSchema=mongoose.Schema({
     addedBy:{
     type:mongoose.Schema.Types.ObjectId,
     ref:"User"
-    },
-    timestamps:true
-})
+    }
+},{timestamps:true})
 const cartModel=mongoose.model("Cart",cartSchema)
 export default cartModel

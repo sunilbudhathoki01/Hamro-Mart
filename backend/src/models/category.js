@@ -14,8 +14,7 @@ const categorySchema=mongoose.Schema({
         type:String,
         required:true
     },
-    timestamp:true
-})
+},{timestamps:true})
 
 const categoryModel=mongoose.model("Category",categorySchema)
 export default categoryModel
