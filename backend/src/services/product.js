@@ -12,12 +12,12 @@ return products
 
 // create products
 const createProducts=async(data,file)=>{
-    const products=await Product.create(data,file);
+    const products=await Product.create({...data,imaeUrl:file});
 return products
 }
 // delete producst
 const deleteProductsById=async(id)=>{
-    const products=await Product.findAnddelete(id);
+    const products=await Product.findByIdAnddelete(id);
     return products
 }
 

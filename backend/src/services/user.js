@@ -12,7 +12,7 @@ const getUserById=async(id)=>{
     return users
 }
 // createUsers
-const createUsers=async(data)=>{
+const createUser=async(data)=>{
     const users=await userModel.create(data);
     return users;
 }
@@ -23,7 +23,7 @@ const deleteUsersById=async(id)=>{
 }
 // updateUsers
 const updateUsers=async(id,data)=>{
-    const users=await userModel.findByIdAndUpdate(id,data)
+    const users=await userModel.findByIdAndUpdate(id,data,{new:true})
     return users
 }
-export default {getAllUsers,getUserById,createUsers,deleteUsersById,updateUsers}
+export default {getAllUsers,getUserById,createUser,deleteUsersById,updateUsers}

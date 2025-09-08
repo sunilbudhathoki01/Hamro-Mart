@@ -20,9 +20,9 @@ const getUserById=async(req,res)=>{
 }
 
 // createUsers
-const createUsers=async(req,res)=>{
+const createUser=async(req,res)=>{
     try {
-        const users=await userService.createUsers(req.body)
+        const users=await userService.createUser(req.body)
         res.json(users)
     } catch (error) {
         console.log(error.message)
@@ -42,11 +42,11 @@ try {
 // updateUsers
 const updateUsers=async()=>{
 try {
-    const users=await userService.updateUsers(req.body,req.params)
+    const users=await userService.updateUsers(req.body,req.params,{new:true})
     res.json(users);
     res.send("users updated successfully.")
 } catch (error) {
     console.log(error.message)
 }
 }
-export default {getAllUsers,getUserById,createUsers,deleteUsersById,updateUsers}
+export default {getAllUsers,getUserById,createUser,deleteUsersById,updateUsers}
